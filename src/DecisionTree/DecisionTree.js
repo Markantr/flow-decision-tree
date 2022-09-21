@@ -52,8 +52,6 @@ function RenderNextTagDesc({ question, index }) {
   }
 }
 
-function getQuestion(searchTerm) {}
-
 class DecisionTree extends Component {
   render() {
     return (

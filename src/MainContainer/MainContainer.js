@@ -1,27 +1,25 @@
-import React from "react";
-import NameSection from "./NameSection";
+import { useState } from "react";
 import DecisionTree from "../DecisionTree/DecisionTree";
 
-export default class MainContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleClick = this.handleClick.bind(this);
-  }
+export default function MainContainer() {
+  const [isShown, setIsShown] = useState(false);
 
-  handleClick() {
-    this.setState({ showDecisionTree: true });
-  }
+  const handleClick = (event) => {
+    setIsShown((current) => !current);
+    document.getElementById("start").style.display = "none";
+  };
 
-  render() {
-    const { showDecisionTree } = this.state;
-    const { handleClick } = this.state;
-    return (
-      <div className="mainContainer">
-        <h2>You want to ...</h2>
-        {!showDecisionTree && <NameSection handleClick={this.handleClick} />}
-        {showDecisionTree && <DecisionTree />}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button id="start" onClick={handleClick}>
+        Click
+      </button>
+      {isShown && (
+        <div>
+          <h2>Some content here</h2>
+        </div>
+      )}
+      {isShown && <DecisionTree />}
+    </div>
+  );
 }
