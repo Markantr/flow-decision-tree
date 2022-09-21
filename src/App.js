@@ -1,5 +1,11 @@
+import MainContainer from "./MainContainer/MainContainer";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="container mt-3">
+      <MainContainer />
+    </div>
+  );
 }
 
 export default App;
